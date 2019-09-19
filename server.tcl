@@ -58,7 +58,7 @@ proc ExecLine {sock line} {
 		return
 	    }
             set cmd [lrange $line 3 [llength $line]-1]
-	    SendMessage $sock [[lindex $cmd 0] [lindex $cmd 1]]
+	    SendMessage $sock [eval $cmd]
 	}
 	default {
 	    ReplyOtherUsing $sock
